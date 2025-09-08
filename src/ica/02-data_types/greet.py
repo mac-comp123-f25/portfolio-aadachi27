@@ -1,4 +1,4 @@
-#
+# print a nice thank you note for a kind person
 
 kind_person = 'Aunt Judi'
 
