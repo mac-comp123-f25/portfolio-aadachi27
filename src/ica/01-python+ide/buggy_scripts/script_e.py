@@ -1,4 +1,5 @@
 # scriptE.py
+#corrected variable name to match name used in print function
 
-strng = "apples"
+string = "apples"
 print(string, string, string)
