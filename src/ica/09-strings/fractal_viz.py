@@ -10,6 +10,12 @@ import turtle
 from fractal.l_system import apply_l_system
 from fractal.fractal_engine import draw_fractal
 
+def draw_new_curve(tur, n, angle, step_size):
+    axiom = 'F'
+    rules = {'F' : 'F+B-F+'}
+    l_system = apply_l_system(axiom, rules, n)
+    draw_fractal(tur, l_system, angle, step_size)
+
 
 def draw_koch_curve(tur, n, angle, step_size):
     axiom = 'F'
@@ -60,7 +66,8 @@ if __name__ == '__main__':
     tur.up()
     tur.down()
 
-    draw_koch_curve(tur, 4, 60, 5)
+    draw_new_curve(tur, 10, 90, 5)
+    # draw_koch_curve(tur, 4, 60, 5)
     # draw_hilbert_curve(tur, 4, 90, 5)
     # draw_quadratic_koch_islad(tur, 3, 90, 5)
     # draw_dragon_curve(tur, 3, 90, 5)

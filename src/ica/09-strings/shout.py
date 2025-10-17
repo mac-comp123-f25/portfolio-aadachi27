@@ -1,7 +1,7 @@
+# convert string to all uppercase
 
+def shout(words):
+    shout_words = words.upper()
+    return shout_words
 
-words = "hello"
-
-new = words.upper()
-
-print(new)
+print(shout("hello"))
