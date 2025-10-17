@@ -5,14 +5,20 @@ Implementation of the Aristid Lindenmayer-system (L-systems)
 """
 
 
-def apply_l_system(axiom: str, rules: dict, n: int):
-    assert type(axiom) is str
-    assert type(rules) is dict
-    assert type(n) is int
+def apply_l_system(fractal_name):
+    assert type(fractal_name) is dict
+    assert len(fractal_name) == 3
+    assert 'axiom' in fractal_name.keys()
+    assert 'rules' in fractal_name.keys()
+    assert 'n' in fractal_name.keys()
 
-    s = axiom
-    for _ in range(n):
-        s = apply_rules(s, rules)
+    #assert type(axiom) is str
+    #assert type(rules) is dict
+    #assert type(n) is int
+
+    s = fractal_name.get('axiom')
+    for _ in range(int(fractal_name.get('n'))):
+        s = apply_rules(s, fractal_name.get('rules'))
 
     return s
 
@@ -45,5 +51,5 @@ if __name__ == "__main__":
     axiom = 'A'
     rules = {('A', 'B'), ('B', 'AB')}
 
-    for i in range(10):
-        print(apply_l_system(axiom, rules, i))
+    #for i in range(10):
+        #print(apply_l_system(axiom, rules, i))

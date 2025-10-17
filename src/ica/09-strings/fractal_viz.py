@@ -11,9 +11,10 @@ from fractal.l_system import apply_l_system
 from fractal.fractal_engine import draw_fractal
 
 def draw_new_curve(tur, n, angle, step_size):
-    axiom = 'F'
-    rules = {'F' : 'F+B-F+'}
-    l_system = apply_l_system(axiom, rules, n)
+    new_curve = {'axiom' : 'F',
+                 'rules' : {'F' : 'F+B-F+'},
+                 'n' : n}
+    l_system = apply_l_system(new_curve)
     draw_fractal(tur, l_system, angle, step_size)
 
 
