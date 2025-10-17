@@ -1,7 +1,8 @@
-
+# remove every instance of input value from input list
 
 def remove_all(value, list):
-    if value in list:
-        list.remove()
+    while list.count(value) > 0:
+        list.remove(value)
+    return list
 
 print(remove_all(2, [2, 8, 7, 3, 5, 2]))

@@ -1,4 +1,4 @@
-
+# replace first item in list with provided value
 
 def change_start(value, list):
     list[0] = value
