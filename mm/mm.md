@@ -39,3 +39,7 @@
 ## Chapter 8
 
 ![IMG_3136.jpg](IMG_3136.jpeg)
+
+## Chapter 9
+
+![IMG_3138.jpg](IMG_3138.jpg)
