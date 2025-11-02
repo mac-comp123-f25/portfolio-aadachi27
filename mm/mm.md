@@ -43,3 +43,19 @@
 ## Chapter 9
 
 ![IMG_3138.jpg](IMG_3138.jpg)
+
+## Chapter 10
+
+![IMG_3149.jpg](IMG_3149.jpg)
+
+## Chapter 11
+
+![IMG_3225.jpg](IMG_3225.jpg)
+
+## Chapter 12
+
+![IMG_3226.jpg](IMG_3226.jpg)
+
+## Chapter 17
+
+![IMG_3227.jpg](IMG_3227.jpg)
