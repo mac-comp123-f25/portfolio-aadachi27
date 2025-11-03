@@ -19,8 +19,10 @@ class Employee:
         saves those values to instance variables. It also initializes the
         variable that holds the comments received by this employee to zero.
         """
-        # TODO: Implement this method then remove this line
-        pass
+        self.gender = gender
+        self.will_comment = will_comment
+        self.comments_received = 0
+
 
     def __str__(self):
         """
@@ -31,14 +33,29 @@ class Employee:
                 + str(self.comments_received)
                 + " sexist comments received")
 
+    def set_commenter_status(self, will_comment):
+        self.will_comment = will_comment
+
+    def receive_sexist_comment(self):
+        self.comments_received = self.comments_received + 1
+
+    def get_gender(self):
+        return self.gender
+
+    def get_commenter_status(self):
+        return self.will_comment
+
+    def get_comments_received(self):
+        return self.comments_received
+
 
 def print_employee_list(lst):
     """
     Given a list of employees, this method will print the details of each employee
     by using the print() method
     """
-    # TODO: Implement this function then remove this line
-    pass
+    for employee in lst:
+        print(employee)
 
 
 def create_employees(total_num):
@@ -46,8 +63,14 @@ def create_employees(total_num):
     Takes in the number of employees to make, builds and returns a list that contains
     that many employees. It ensures that ~80% are men and the rest women.
     """
-    # TODO: Implement this function then remove this line
-    pass
+    employee_list = []
+    num_male = int(0.8 * total_num)
+    num_female = total_num - num_male
+    for x in range(num_male):
+        employee_list.append(Employee("Man", False))
+    for x in range(num_female):
+        employee_list.append(Employee("Woman", False))
+    return employee_list
 
 
 def create_commenters(lst):
@@ -55,8 +78,10 @@ def create_commenters(lst):
     Given a list of employees, make 20% of each gender be sexist employees. This
     method should not return anything.
     """
-    # TODO: Implement this function then remove this line
-    pass
+    for employee in lst:
+        comment_chance = random.random()
+        if comment_chance < 0.2:
+            employee.set_commenter_status(True)
 
 
 def generate_comments(lst):
@@ -65,8 +90,24 @@ def generate_comments(lst):
     another employee of the opposite gender, chosen randomly. This method should
     not return anything
     """
-    # TODO: Implement this function then remove this line
-    pass
+    male_employees = []
+    female_employees = []
+
+    for employee in lst:
+        if employee.gender == "Woman":
+            female_employees.append(employee)
+        else:
+            male_employees.append(employee)
+
+    for m_employee in male_employees:
+        if m_employee.will_comment == True:
+            comment_receiver = random.choice(female_employees)
+            comment_receiver.receive_sexist_comment()
+
+    for f_employee in female_employees:
+        if f_employee.will_comment == True:
+            comment_receiver = random.choice(male_employees)
+            comment_receiver.receive_sexist_comment()
 
 
 def average_comments(lst):
@@ -74,8 +115,18 @@ def average_comments(lst):
     Returns a tuple that represents the average amount of comments received for men and women
     respectively. Return statement will be in the form (<avg_for_men>, <avg_for_women>)
     """
-    # TODO: Implement this function then remove this line
-    pass
+    male_employees = []
+    female_employees = []
+
+    for employee in lst:
+        if employee.gender == "Woman":
+            female_employees.append(employee.comments_received)
+        else:
+            male_employees.append(employee.comments_received)
+
+    male_avg = sum(male_employees) / len(male_employees)
+    female_avg = sum(female_employees) / len(female_employees)
+    return (male_avg, female_avg)
 
 
 def main():
@@ -120,4 +171,4 @@ if __name__ == "__main__":
     print(average_comments(employees))
 
     "<----- Run the simulation ----->"
-    # main()  # <-- KEEP THIS, Uncomment it after implementing all the functions
+    main()  # <-- KEEP THIS, Uncomment it after implementing all the functions

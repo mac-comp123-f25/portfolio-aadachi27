@@ -2,9 +2,12 @@
 
 
 def compute_frequencies(file_name):
-    print(file_name)
+    text = open(file_name, "r")
+    print(text.read())
 
-compute_frequencies(alice.txt)
+compute_frequencies("../TextFiles/alice.txt")
+
+
 
 
 
