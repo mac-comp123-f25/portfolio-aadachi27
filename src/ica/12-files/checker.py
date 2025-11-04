@@ -1,4 +1,5 @@
-# return words in text file that contain inputed string
+# return a dictionary containing all words in text without
+# punctuation and the number of times they appear in the text
 
 def select_words(s, fn):
     file = open(fn, "r")
