@@ -1,5 +1,4 @@
 
-
 import imagetools
 from src.ica.helpers.dummyWindow import *
 
@@ -13,6 +12,6 @@ def grayscale(pic):
     return new_pic
 
 
-grayscale('src/ica/16-simple-images/test-image.jpg')
+grayscale("test-image.jpg")
 
 keep_windows_open()

@@ -32,8 +32,11 @@ def get_state_living_wage(state, table):
     living wage table (a list of dictionaries), this looks up the given
     state's row dictionary, and returns the annual living wage for that state.
     """
-    # TODO: finish this function
-    pass
+    living_wage = "None"
+    for row in table:
+        if row["State"] == state or row["StateAbbrev"] == state:
+            living_wage = row["AnnualLivingWage"]
+    return living_wage
 
 
 def get_low_wage_states(table):
@@ -43,8 +46,11 @@ def get_low_wage_states(table):
     wage of $7.25. It returns a new sunTable, a list, containing the row
     dictionaries
     """
-    # TODO: finish this function
-    pass
+    low_wage_states = []
+    for row in table:
+        if row["HourlyMinimumWage"] == 7.25:
+            low_wage_states.append(row)
+    return low_wage_states
 
 
 def get_expensive_states(table):
@@ -66,8 +72,9 @@ def annual_wage(hourly_wage):
     * Each worker works 40 hours per week (no part-time work!)
     * Each worker works 52 weeks per year (no vacation time!)
     """
-    # TODO: finish this function
-    pass
+    wage = hourly_wage * 4160
+    return wage
+
 
 
 def get_gap_states(table):
@@ -80,8 +87,13 @@ def get_gap_states(table):
     earned at minimum wage.  Find the states where the annual salary at
     minimum wage is less than the living wage.
     """
-    # TODO: finish this function
-    pass
+    gap_states = []
+    for row in table:
+        annual_wage_amount = annual_wage(row["HourlyMinimumWage"])
+        if annual_wage_amount < row["AnnualLivingWage"]:
+            gap_states.append(row["State"])
+    print(len(gap_states))
+    return gap_states
 
 
 # Visualizing data
@@ -94,15 +106,18 @@ def vis_gaps(table):
 
     # state names
     state_abbrevs = []
-    # TODO: build the list
+    for row in table:
+        state_abbrevs.append(row["StateAbbrev"])
 
     # yearly minimum wage earnings for family with two minimum-wage workers
     state_AMW = []
-    # TODO: build the list
+    for row in table:
+        state_AMW.append(annual_wage(row["HourlyMinimumWage"]))
 
     # yearly living wage earnings by state
     state_ALW = []
-    # TODO: build the list
+    for row in table:
+        state_ALW.append(row["AnnualLivingWage"])
 
     # set up plot
     plt.figure(figsize=(12.0, 4.0))     # Create figure 12" wide and 4" tall
@@ -134,18 +149,22 @@ def main():
     print_table(lw_data, lw_fields, 15)
 
     # # Sample calls for get_state_living_wage
-    # ark_liv_wage = get_state_living_wage('Arkansas', lw_data)
-    # print("Arkansas living wage is", ark_liv_wage)
-    # cal_liv_wage = get_state_living_wage("CA", lw_data)
-    # print("California living wage is", cal_liv_wage)
-    # mn_liv_wage = get_state_living_wage("Minnesota", lw_data)
-    # print("Minnesota living wage is", mn_liv_wage)
+    ark_liv_wage = get_state_living_wage('Arkansas', lw_data)
+    print("Arkansas living wage is", ark_liv_wage)
+    cal_liv_wage = get_state_living_wage("CA", lw_data)
+    print("California living wage is", cal_liv_wage)
+    mn_liv_wage = get_state_living_wage("Minnesota", lw_data)
+    print("Minnesota living wage is", mn_liv_wage)
+    print(get_state_living_wage("Spain", lw_data))
 
     # Sample calls for get_low_wage_states
-    # low_wagers = get_low_wage_states(lw_data)
-    # print("LOW WAGE STATES:")
-    # print_table(low_wagers, lw_fields, 15)
+    low_wagers = get_low_wage_states(lw_data)
+    print("LOW WAGE STATES:")
+    print_table(low_wagers, lw_fields, 15)
 
+    print(get_gap_states(lw_data))
+
+    vis_gaps(lw_data)
 
 if __name__ == '__main__':
     main()
