@@ -1,9 +1,19 @@
 import time
+import random
 from src.ica.helpers.dummyWindow import *
+from src.ica.helpers.imageTools import *
+
 
 
 def get_rand_bg():
-    ...
+    pic = Picture(100, 100)
+    red = random.randrange(0, 255)
+    green = random.randrange(0, 255)
+    blue = random.randrange(0, 255)
+    pic.setAllPixels((red, green, blue))
+    return pic
+
+
 
 
 def main():
