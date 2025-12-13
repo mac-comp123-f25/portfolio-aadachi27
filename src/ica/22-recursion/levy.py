@@ -38,7 +38,16 @@ def check_draw_levy(size: float, reps: int) -> None:
 
 # TODO: Complete the function
 def draw_levy(turt, size, reps):
-    ...
+    if reps == 1:
+        turt.forward(size)
+        return
+    else:
+        new_size = calc_next_size(size)
+        turt.left(45)
+        draw_levy(turt, new_size, reps - 1)
+        turt.right(90)
+        draw_levy(turt, new_size, reps - 1)
+        turt.left(45)
 
 
 if __name__ == '__main__':

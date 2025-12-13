@@ -33,11 +33,11 @@ def draw_tree(branch_len, turt):
     stops if the branch length gets to be less than or equal to 5"""
     if branch_len > 5:
         turt.forward(branch_len)
-        turt.right(20)
+        turt.right(40)
         draw_tree(branch_len - 15, turt)
-        turt.left(40)
-        draw_tree(branch_len - 15, turt)
-        turt.right(20)
+        turt.left(80)
+        draw_tree(branch_len - 10, turt)
+        turt.right(30)
         turt.backward(branch_len)
 
 
