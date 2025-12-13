@@ -56,6 +56,10 @@
 
 ![IMG_3226.jpg](IMG_3226.jpg)
 
+## Chapter 16
+
+![IMG_3378.jpg](IMG_3378.jpg)
+
 ## Chapter 17
 
 ![IMG_3227.jpg](IMG_3227.jpg)
