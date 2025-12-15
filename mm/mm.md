@@ -63,3 +63,7 @@
 ## Chapter 17
 
 ![IMG_3227.jpg](IMG_3227.jpg)
+
+## Chapter 18
+
+![IMG_3388.jpg](IMG_3388.jpg)
