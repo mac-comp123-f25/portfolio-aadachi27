@@ -117,6 +117,6 @@ if __name__ == "__main__":
 
     write_footer(scn, turt)
 
-    turt.home()
+    turt.home() 
 
     scn.exitonclick()
